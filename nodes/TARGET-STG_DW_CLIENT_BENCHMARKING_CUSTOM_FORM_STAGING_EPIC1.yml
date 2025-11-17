@@ -1,0 +1,202 @@
+fileVersion: 1
+id: 720caa76-3ece-472e-a03b-393a85858354
+name: STG_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 23fba7d6-6384-4ae0-87e5-f72102415ffd
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fc0a0e0c-3a94-4309-adca-455b331b70c4
+                stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5ceead1b-6bbf-4705-998d-51f28d596a2c
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: FORMDATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 02d1fd9a-e1f8-4294-9236-6bc3cc3019ff
+                stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18ee6755-dbf1-41ef-8161-173f45e0ff53
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: FORMNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f1c605c-f5c9-402f-ac62-e75fd8617bd4
+                stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5e5e007-67fe-492c-8049-f708911b3f47
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: PAGEID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01e3db0c-efd2-44d9-bb07-95b6d0091735
+                stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0102365d-c15a-484e-a83c-d066435302aa
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: PAGEDESC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3b97326-d1ef-43d4-a1e0-5573bc89a637
+                stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae024b88-47bc-4869-b18c-32b22b351000
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: DATATYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get("Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control".value, '@DataTypeCd')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ceb6dabf-5b9a-4bca-bb31-8aedf4dd633d
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: FIELDNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get("Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control".value, '@FldName')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e9ad514-7b5a-40ae-b1ea-fe64b66ed47a
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: FIELDID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get("Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control".value, '@Id')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16550f3c-84cf-4732-a8aa-5d35fc534a15
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: DATALENGTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get("Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control".value, '@MaxLenN')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f48cea6b-87aa-4204-8b2e-097d18e01e68
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: ORDERNUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get("Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control".value, '@OrderN')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b2e8396-c860-4583-8970-e75adff8e27f
+          stepCounter: 720caa76-3ece-472e-a03b-393a85858354
+        config: {}
+        dataType: STRING
+        description: ""
+        name: FIELDTEXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get("Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control".value, '@Text')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1') }} "V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1", 
+            LATERAL FLATTEN(input => get(xmlget(xmlget(xmlget(xmlget(xmlget(xmlget(V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1.FORMDATA, 'TransferSets'), 'ScreenSets'), 'ScreenSet'), 'Pages'), 'Page'), 'DataEntry'), '$')) "Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control"
+        name: STG_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1
+        noLinkRefs: []
+  name: STG_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

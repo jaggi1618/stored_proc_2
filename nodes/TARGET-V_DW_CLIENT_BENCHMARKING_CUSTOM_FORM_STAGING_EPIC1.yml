@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+name: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fc0a0e0c-3a94-4309-adca-455b331b70c4
+          stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f60ffb9-787b-4c13-8ae9-ac021c87c116
+                stepCounter: 31f75ada-f4bc-4517-9926-f01dcae0edf0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 02d1fd9a-e1f8-4294-9236-6bc3cc3019ff
+          stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: FORMDATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a69057ca-b53c-47c7-8a7f-1c3108112766
+                stepCounter: 31f75ada-f4bc-4517-9926-f01dcae0edf0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f1c605c-f5c9-402f-ac62-e75fd8617bd4
+          stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+        config: {}
+        dataType: STRING
+        description: ""
+        name: FORMNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 018376c1-bb12-4fbc-bf55-380ae950f610
+                stepCounter: 31f75ada-f4bc-4517-9926-f01dcae0edf0
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01e3db0c-efd2-44d9-bb07-95b6d0091735
+          stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+        config: {}
+        dataType: STRING
+        description: ""
+        name: Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_Id
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get(xmlget(xmlget(xmlget(xmlget(xmlget(V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC.FORMDATA, 'TransferSets'), 'ScreenSets'), 'ScreenSet'), 'Pages'), 'Page'), '@Id')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3b97326-d1ef-43d4-a1e0-5573bc89a637
+          stepCounter: 7fdef7f6-6074-431e-8129-9eccbc779e5b
+        config: {}
+        dataType: STRING
+        description: ""
+        name: Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_PageDesc
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get(xmlget(xmlget(xmlget(xmlget(xmlget(V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC.FORMDATA, 'TransferSets'), 'ScreenSets'), 'ScreenSet'), 'Pages'), 'Page'), '@PageDesc')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC: 31f75ada-f4bc-4517-9926-f01dcae0edf0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC') }} "V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC", 
+            LATERAL FLATTEN(input => get(xmlget(xmlget(xmlget(xmlget(xmlget(xmlget(V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC.FORMDATA, 'TransferSets'), 'ScreenSets'), 'ScreenSet'), 'Pages'), 'Page'), 'DataEntry'), '$')) "Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control"
+        name: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1
+        noLinkRefs: []
+  name: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC1
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

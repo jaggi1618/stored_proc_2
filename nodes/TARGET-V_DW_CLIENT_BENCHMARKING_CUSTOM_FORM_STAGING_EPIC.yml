@@ -1,0 +1,82 @@
+fileVersion: 1
+id: 31f75ada-f4bc-4517-9926-f01dcae0edf0
+name: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7f60ffb9-787b-4c13-8ae9-ac021c87c116
+          stepCounter: 31f75ada-f4bc-4517-9926-f01dcae0edf0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ccd6883a-5cc7-4c68-903c-3ad7e478af39
+                stepCounter: 897db100-a009-48cd-8152-b36636a487a0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a69057ca-b53c-47c7-8a7f-1c3108112766
+          stepCounter: 31f75ada-f4bc-4517-9926-f01dcae0edf0
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: FORMDATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 843557ee-0e0b-46a1-8c2e-42e13fa66e00
+                stepCounter: 897db100-a009-48cd-8152-b36636a487a0
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 018376c1-bb12-4fbc-bf55-380ae950f610
+          stepCounter: 31f75ada-f4bc-4517-9926-f01dcae0edf0
+        config: {}
+        dataType: STRING
+        description: ""
+        name: FORMNAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: get(xmlget(xmlget(xmlget(DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC.FORMDATA, 'TransferSets'), 'ScreenSets'), 'ScreenSet'), '@ShortFileName')
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC: 897db100-a009-48cd-8152-b36636a487a0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC') }} "DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC", 
+            LATERAL FLATTEN(input => get(xmlget(xmlget(xmlget(xmlget(xmlget(xmlget(DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC.FORMDATA, 'TransferSets'), 'ScreenSets'), 'ScreenSet'), 'Pages'), 'Page'), 'DataEntry'), '$')) "Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control"
+        name: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
+        noLinkRefs: []
+  name: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

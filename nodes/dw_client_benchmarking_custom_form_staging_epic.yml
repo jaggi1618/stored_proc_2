@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 5a8d9b1c-3b3f-4e2e-8a1a-0f9c3d4a2b1c
+name: dw_client_benchmarking_custom_form_staging_epic
+operation:
+  database: Alliant_DW_Stage
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e
+          stepCounter: 5a8d9b1c-3b3f-4e2e-8a1a-0f9c3d4a2b1c
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: UniqCustomFormMap
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2g3h4i5-j6k7-4l8m-9n0o-1p2q3r4s5t6u
+          stepCounter: 5a8d9b1c-3b3f-4e2e-8a1a-0f9c3d4a2b1c
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: formdata
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: dw_client_benchmarking_custom_form_staging_epic
+  schema: dbo
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,114 @@
+fileVersion: 1
+id: b3c4d5e6-f7a8-4b9c-8d1e-2f3a4b5c6d7e
+name: STG_tmp_form_map
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: Alliant_DW_Stage
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4d5e6f7-a8b9-4c1d-8e2f-3a4b5c6d7e8f
+          stepCounter: b3c4d5e6-f7a8-4b9c-8d1e-2f3a4b5c6d7e
+        config: {}
+        dataType: INT
+        description: ""
+        name: UniqCustomFormMap
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e
+                stepCounter: 5a8d9b1c-3b3f-4e2e-8a1a-0f9c3d4a2b1c
+            transform: sl.UniqCustomFormMap
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d5e6f7a8-b9c1-4d2e-8f3a-4b5c6d7e8f9a
+          stepCounter: b3c4d5e6-f7a8-4b9c-8d1e-2f3a4b5c6d7e
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: form_name
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2g3h4i5-j6k7-4l8m-9n0o-1p2q3r4s5t6u
+                stepCounter: 5a8d9b1c-3b3f-4e2e-8a1a-0f9c3d4a2b1c
+            transform: scrnset_f.value:\"@ScrnDesc\"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e6f7a8b9-c1d2-4e3f-8a4b-5c6d7e8f9a0b
+          stepCounter: b3c4d5e6-f7a8-4b9c-8d1e-2f3a4b5c6d7e
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: page_id
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2g3h4i5-j6k7-4l8m-9n0o-1p2q3r4s5t6u
+                stepCounter: 5a8d9b1c-3b3f-4e2e-8a1a-0f9c3d4a2b1c
+            transform: page_f.value:\"@Id\"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7a8b9c1-d2e3-4f4a-8b5c-6d7e8f9a0b1c
+          stepCounter: b3c4d5e6-f7a8-4b9c-8d1e-2f3a4b5c6d7e
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: page_description
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2g3h4i5-j6k7-4l8m-9n0o-1p2q3r4s5t6u
+                stepCounter: 5a8d9b1c-3b3f-4e2e-8a1a-0f9c3d4a2b1c
+            transform: page_f.value:\"@PageDesc\"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8b9c1d2-e3f4-4a5b-8c6d-7e8f9a0b1c2d
+          stepCounter: b3c4d5e6-f7a8-4b9c-8d1e-2f3a4b5c6d7e
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: xml_data
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f2g3h4i5-j6k7-4l8m-9n0o-1p2q3r4s5t6u
+                stepCounter: 5a8d9b1c-3b3f-4e2e-8a1a-0f9c3d4a2b1c
+            transform: control_f.value
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          dw_client_benchmarking_custom_form_staging_epic: sl
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: dw_client_benchmarking_custom_form_staging_epic
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'dw_client_benchmarking_custom_form_staging_epic') }} sl
+            , LATERAL FLATTEN(input => PARSE_XML(sl.formdata), path=>'/Transfer/TransferSet/ScrnSets/ScrnSet') scrnset_f
+            , LATERAL FLATTEN(input => scrnset_f.value, path => 'Pages/Page') page_f
+            , LATERAL FLATTEN(input => page_f.value, path => 'DataEntry/Control') control_f
+        name: STG_tmp_form_map
+        noLinkRefs: []
+  name: STG_tmp_form_map
+  overrideSQL: false
+  schema: dbo
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

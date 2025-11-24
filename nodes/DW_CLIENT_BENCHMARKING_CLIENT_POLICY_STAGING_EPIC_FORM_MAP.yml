@@ -1,0 +1,228 @@
+fileVersion: 1
+id: fe25e791-49b0-4660-bf86-7a0e1c662828
+name: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93d0889f-29d9-482f-87d2-32a02b36b7cd
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: INT
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3236e392-f04b-4b19-8686-c1482f71eb32
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57198df-883a-4933-8a39-c5c56c230dfa
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FORM_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: df8b3b4a-0a7b-4022-81c1-4b06752765d7
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2f451f-506e-47f2-985c-6b3a232f913d
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PAGE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8251e0cc-d95b-4832-84da-561b36585122
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c76b1f28-097c-40ad-be80-7fcaf7cd881f
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PAGE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cce8eb5d-91b6-4556-9a5d-40c2cc24e25a
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf89f1f0-0a37-4d9c-a12b-7c70e7e17424
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FIELD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d32d0c27-72ce-4fc3-a447-d0a44d8ed27f
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: XMLGET(sl.xml_data, '@Id'):"$"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6f5a34e-090c-4395-8164-9286d30ff525
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FIELD_TEXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d32d0c27-72ce-4fc3-a447-d0a44d8ed27f
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: XMLGET(sl.xml_data, '@Text'):"$"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af684282-e221-4354-94e8-89c03ab766c5
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FIELD_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d32d0c27-72ce-4fc3-a447-d0a44d8ed27f
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: XMLGET(sl.xml_data, '@FldName'):"$"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ffec60a-28e4-42f0-94a8-62057d22b649
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: DATA_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d32d0c27-72ce-4fc3-a447-d0a44d8ed27f
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: XMLGET(sl.xml_data, '@DataTypeCd'):"$"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b138c237-775b-4355-82dd-80f4f728cfbe
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: DATA_LENGTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d32d0c27-72ce-4fc3-a447-d0a44d8ed27f
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: XMLGET(sl.xml_data, '@MaxLenN'):"$"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1a555a3-7629-4d62-a50d-df89b940e4f2
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d32d0c27-72ce-4fc3-a447-d0a44d8ed27f
+                stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+            transform: XMLGET(sl.xml_data, '@OrderN'):"$"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b0688a2-2579-436d-9279-37326b483c61
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c257c917-70e6-4279-bd31-50e588cf3e27
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''spdw_dw_client_benchmarking_client_policy_staging_epic_form_map_insert'''
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b13c4737-f827-4648-971a-e9fd0024467c
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 97ac053e-5184-4632-9c16-52c7104a378d
+          stepCounter: fe25e791-49b0-4660-bf86-7a0e1c662828
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''spdw_dw_client_benchmarking_client_policy_staging_epic_form_map_insert'''
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_TMP_FORM_MAP: sl
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_TMP_FORM_MAP
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_TMP_FORM_MAP') }} "sl"
+        name: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP
+        noLinkRefs: []
+  name: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

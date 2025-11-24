@@ -1,0 +1,112 @@
+fileVersion: 1
+id: 54dae196-857e-46a2-a9b0-94d762e15d8f
+name: STG_TMP_FORM_MAP
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3236e392-f04b-4b19-8686-c1482f71eb32
+          stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+        config: {}
+        dataType: INT
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 978913b8-6a5c-4d8e-94dd-25d259c9725f
+                stepCounter: 03f5698b-7f33-4f93-b6d9-f55977a419fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: df8b3b4a-0a7b-4022-81c1-4b06752765d7
+          stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FORM_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c42b2600-4b35-42d4-8d4e-b08053c51770
+                stepCounter: 03f5698b-7f33-4f93-b6d9-f55977a419fc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8251e0cc-d95b-4832-84da-561b36585122
+          stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PAGE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39a16f2d-60a6-4054-93e1-b4f53582490d
+                stepCounter: 03f5698b-7f33-4f93-b6d9-f55977a419fc
+            transform: XMLGET(xmlform.value, 'Id'):"$"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cce8eb5d-91b6-4556-9a5d-40c2cc24e25a
+          stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PAGE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39a16f2d-60a6-4054-93e1-b4f53582490d
+                stepCounter: 03f5698b-7f33-4f93-b6d9-f55977a419fc
+            transform: XMLGET(xmlform.value, 'PageDesc'):"$"::VARCHAR(255)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d32d0c27-72ce-4fc3-a447-d0a44d8ed27f
+          stepCounter: 54dae196-857e-46a2-a9b0-94d762e15d8f
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: XML_DATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 39a16f2d-60a6-4054-93e1-b4f53582490d
+                stepCounter: 03f5698b-7f33-4f93-b6d9-f55977a419fc
+            transform: xmlform.value
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_FORM_DATA_CTE: sl
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_FORM_DATA_CTE
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_FORM_DATA_CTE') }} "sl", LATERAL
+            FLATTEN(INPUT => PARSE_XML(sl.form_data), PATH => 'Pages/Page/DataEntry/Control')
+            xmlform
+        name: STG_TMP_FORM_MAP
+        noLinkRefs: []
+  name: STG_TMP_FORM_MAP
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

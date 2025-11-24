@@ -1,0 +1,55 @@
+fileVersion: 1
+id: 597a7a53-f736-4074-8b65-6541f5358052
+name: DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 322c36a3-2d64-42b7-bdc1-4043f11d6092
+          stepCounter: 597a7a53-f736-4074-8b65-6541f5358052
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6edb721-de1a-4712-921d-c4ac5e3e2601
+          stepCounter: 597a7a53-f736-4074-8b65-6541f5358052
+        config: {}
+        dataType: VARIANT
+        defaultValue: ""
+        description: ""
+        name: FORMDATA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
+  overrideSQL: false
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

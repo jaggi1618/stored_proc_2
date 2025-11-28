@@ -68,7 +68,7 @@ operation:
           - locationName: SRC
             nodeName: DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
         join:
-          joinCondition: |-
+          joinCondition: |
             FROM {{ ref('SRC', 'DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC') }} "DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC", 
             LATERAL FLATTEN(input => get(xmlget(xmlget(xmlget(xmlget(xmlget(xmlget(DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC.FORMDATA, 'TransferSets'), 'ScreenSets'), 'ScreenSet'), 'Pages'), 'Page'), 'DataEntry'), '$')) "Transfer_TransferSets_ScreenSets_ScreenSet_Pages_Page_DataEntry_Control"
         name: V_DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC

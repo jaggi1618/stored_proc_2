@@ -63,8 +63,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: /* SNOWFLAKE-CONVERSION-CHALLENGE: T-SQL parent axis ('../../@Id')
-              not supported in XMLGET. Requires multi-level flatten or UDF. */ NULL
+            transform: ""
         transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -77,8 +76,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: /* SNOWFLAKE-CONVERSION-CHALLENGE: T-SQL parent axis ('../../@PageDesc')
-              not supported in XMLGET. Requires multi-level flatten or UDF. */ NULL
+            transform: ""
         transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -116,4 +114,5 @@ operation:
   sqlType: View
   type: sql
   version: 1
+
 type: Node

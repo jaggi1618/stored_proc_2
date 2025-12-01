@@ -1,0 +1,86 @@
+fileVersion: 1
+id: a7b1c435-0816-418f-9a74-d4b8f52f369d
+name: V_CTE_FORM_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c82d2a45-5f21-4d37-8b09-0d321d5c2c7c
+          stepCounter: a7b1c435-0816-418f-9a74-d4b8f52f369d
+        config: {}
+        dataType: INT
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f568a91-4e46-4e0d-b89c-3837905c1d68
+                stepCounter: 593b4823-380d-4f18-a6d1-447a28e9a2b5
+            transform: SL.UNIQCUSTOMFORMMAP
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e34d748-0c6a-49e0-8b1a-07233f2d2b51
+          stepCounter: a7b1c435-0816-418f-9a74-d4b8f52f369d
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FORM_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 900609b5-f55a-4712-9c3f-c9c049d52f82
+                stepCounter: 593b4823-380d-4f18-a6d1-447a28e9a2b5
+            transform: XMLGET(PARSE_XML(SL.FORMDATA), 'ScrnSet'):"@ScrnDesc"::VARCHAR(255)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5d105c31-c063-440d-b57e-3949a205a228
+          stepCounter: a7b1c435-0816-418f-9a74-d4b8f52f369d
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: FORM_DATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 900609b5-f55a-4712-9c3f-c9c049d52f82
+                stepCounter: 593b4823-380d-4f18-a6d1-447a28e9a2b5
+            transform: XMLGET(PARSE_XML(SL.FORMDATA), 'ScrnSet'):"$"
+        transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC: SL
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CUSTOM_FORM_STAGING_EPIC')
+            }} AS "SL"
+        name: V_CTE_FORM_DATA
+        noLinkRefs: []
+  name: V_CTE_FORM_DATA
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

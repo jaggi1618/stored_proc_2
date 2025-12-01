@@ -1,0 +1,119 @@
+fileVersion: 1
+id: f58c4228-5688-4629-9e8c-55268c5efb0e
+name: V_TMP_FORM_MAP
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: This node represents the un-nesting of XML data from the source.
+    The CROSS APPLY .nodes() in T-SQL is translated to a LATERAL FLATTEN in Snowflake.
+    The JSON blueprint does not have a standard field for this operation, so it is
+    implied by the column transformations below. The parent-axis navigation ('../../')
+    in T-SQL XML methods is not directly supported in Snowflake and requires a UDF
+    or a multi-level flatten strategy, which should be implemented during development.
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b51212b1-5a58-45ac-8f5c-897b5e19f743
+          stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+        config: {}
+        dataType: INT
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c82d2a45-5f21-4d37-8b09-0d321d5c2c7c
+                stepCounter: a7b1c435-0816-418f-9a74-d4b8f52f369d
+            transform: SL.UNIQCUSTOMFORMMAP
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8a892b3-57c2-4a0e-9247-4187f5e7178a
+          stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FORM_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7e34d748-0c6a-49e0-8b1a-07233f2d2b51
+                stepCounter: a7b1c435-0816-418f-9a74-d4b8f52f369d
+            transform: SL.FORM_NAME
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 421b53e7-e23e-4b7d-864a-233632ab3e89
+          stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PAGE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: /* SNOWFLAKE-CONVERSION-CHALLENGE: T-SQL parent axis ('../../@Id')
+              not supported in XMLGET. Requires multi-level flatten or UDF. */ NULL
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e801e0a9-3d23-4402-861f-1fd1461f364e
+          stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PAGE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: /* SNOWFLAKE-CONVERSION-CHALLENGE: T-SQL parent axis ('../../@PageDesc')
+              not supported in XMLGET. Requires multi-level flatten or UDF. */ NULL
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f93f773-6101-4dd9-a3b0-e3770f61d471
+          stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: XML_DATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5d105c31-c063-440d-b57e-3949a205a228
+                stepCounter: a7b1c435-0816-418f-9a74-d4b8f52f369d
+            transform: XMLFORM.VALUE
+        transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_CTE_FORM_DATA: SL
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_CTE_FORM_DATA
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'V_CTE_FORM_DATA') }} AS "SL", LATERAL
+            FLATTEN(INPUT => SL.FORM_DATA) XMLFORM
+        name: V_TMP_FORM_MAP
+        noLinkRefs: []
+  name: V_TMP_FORM_MAP
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

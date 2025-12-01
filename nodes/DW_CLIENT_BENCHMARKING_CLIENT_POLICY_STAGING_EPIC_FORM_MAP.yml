@@ -1,0 +1,242 @@
+fileVersion: 1
+id: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+name: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82a5c48b-3720-4e3f-a391-443b351336c5
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: INT
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b51212b1-5a58-45ac-8f5c-897b5e19f743
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: SL.UNIQCUSTOMFORMMAP
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f1455a4-5696-41e9-92c2-75d15acb665c
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FORM_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d8a892b3-57c2-4a0e-9247-4187f5e7178a
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: SL.FORM_NAME
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1d69d4c1-6b83-4311-9686-2a7de36f56d9
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PAGE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 421b53e7-e23e-4b7d-864a-233632ab3e89
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: SL.PAGE_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16298547-d31e-450f-a3d2-28c037f5d939
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PAGE_DESCRIPTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e801e0a9-3d23-4402-861f-1fd1461f364e
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: SL.PAGE_DESCRIPTION
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b29c50a-f902-469b-980b-222409f2b844
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FIELD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f93f773-6101-4dd9-a3b0-e3770f61d471
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: XMLGET(PARSE_XML(SL.XML_DATA), 'Control'):"@Id"::VARCHAR(255)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3226a3a9-e265-4f40-86b1-09b68a881559
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FIELD_TEXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f93f773-6101-4dd9-a3b0-e3770f61d471
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: XMLGET(PARSE_XML(SL.XML_DATA), 'Control'):"@Text"::VARCHAR(255)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c11e5a51-e17f-4b0d-83b3-8be2cc3c706d
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: FIELD_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f93f773-6101-4dd9-a3b0-e3770f61d471
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: XMLGET(PARSE_XML(SL.XML_DATA), 'Control'):"@FldName"::VARCHAR(255)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e813a07-8e65-420a-ac08-e87f17b6b23d
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: DATA_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f93f773-6101-4dd9-a3b0-e3770f61d471
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: XMLGET(PARSE_XML(SL.XML_DATA), 'Control'):"@DataTypeCd"::VARCHAR(255)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7714856f-2b62-4f81-9c8f-287d558d712e
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: DATA_LENGTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f93f773-6101-4dd9-a3b0-e3770f61d471
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: XMLGET(PARSE_XML(SL.XML_DATA), 'Control'):"@MaxLenN"::VARCHAR(255)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4501a337-f1c5-4428-971c-dd470e88cf86
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: ORDER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f93f773-6101-4dd9-a3b0-e3770f61d471
+                stepCounter: f58c4228-5688-4629-9e8c-55268c5efb0e
+            transform: XMLGET(PARSE_XML(SL.XML_DATA), 'Control'):"@OrderN"::VARCHAR(255)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63014a6-4b25-45a7-932d-327c5e2d5c31
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93557457-418f-4315-9c59-a0388277eb37
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''SPDW_DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP_INSERT'''
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77a8efb7-6f81-4229-87c2-0941dd933b93
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e736f3c1-0730-4e3f-a653-5290b05b45c2
+          stepCounter: 489f6498-f9b9-4a0b-99f8-b39174620f5c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''SPDW_DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP_INSERT'''
+        transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          V_TMP_FORM_MAP: SL
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: V_TMP_FORM_MAP
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'V_TMP_FORM_MAP') }} AS "SL"
+        name: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP
+        noLinkRefs: []
+  name: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC_FORM_MAP
+  overrideSQL: false
+  schema: DBO
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
